@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TurboCell Atlas Tutorial Article: Rare-State Retrieval</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Tutorial Article</div>
+          <h1>Rare-state retrieval is the clearest success case for TurboQuant.</h1>
+          <p class="lede">This article reports an executed analysis for the <code>IPF myofibroblast centroid</code> on the public SCimilarity tutorial dataset.</p>
+          <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="wet-lab-guide.html">Wet Lab Guide</a>
+            <a href="tutorial.html">Tutorials</a>
+            <a href="real-data-case-study.html">Real Data Case Study</a>
+            <a href="reference.html">Reference</a>
+          </nav>
+        </div>
+        <aside class="hero-panel">
+          <div class="kicker">Question</div>
+          <p>Can compressed candidate generation preserve the exact neighborhood of a compact pathological state while shrinking memory substantially?</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <img src="assets/scenario-rare-state.png" alt="Rare-state retrieval summary">
+    </section>
+
+    <section class="section">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Method</th><th>Recall@100</th><th>Top-20 overlap</th><th>Avg latency (ms)</th><th>Candidate memory (MB)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>exact</code></td><td>1.00</td><td>1.00</td><td>15.72</td><td>24.41</td></tr>
+            <tr><td><code>turboquant-prod-b2</code></td><td>1.00</td><td>1.00</td><td>50.64</td><td>1.72</td></tr>
+            <tr><td><code>turboquant-prod-b3</code></td><td>1.00</td><td>1.00</td><td>47.45</td><td>2.48</td></tr>
+            <tr><td><code>turboquant-prod-b4</code></td><td>1.00</td><td>1.00</td><td>47.82</td><td>3.24</td></tr>
+            <tr><td><code>faiss-pq-m8-nbits8</code></td><td>0.30</td><td>0.05</td><td>0.52</td><td>0.51</td></tr>
+            <tr><td><code>hnswlib-cosine</code></td><td>1.00</td><td>1.00</td><td>0.13</td><td>31.69</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="story-grid">
+        <article class="mini-card">
+          <div class="kicker">What worked</div>
+          <p>TurboQuant preserved the exact top-100 neighborhood at every tested bit width.</p>
+        </article>
+        <article class="mini-card">
+          <div class="kicker">What changed</div>
+          <p>The candidate layer shrank from <code>24.41 MB</code> to <code>1.72-3.24 MB</code>.</p>
+        </article>
+        <article class="mini-card">
+          <div class="kicker">What it means</div>
+          <p>This is the strongest evidence that compressed candidate generation can remain biologically faithful for compact pathological states.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer">Executed artifacts: <code>artifacts/scenario_articles/rare_state_summary.csv</code> and <code>artifacts/scenario_articles/rare_state_thumbnail.png</code>.</p>
+  </main>
+</body>
+</html>

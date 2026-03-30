@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TurboCell Atlas Tutorial Article: Broad-State Tuning</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Tutorial Article</div>
+          <h1>Broad-state tuning changes TurboQuant from failing badly to being competitive.</h1>
+          <p class="lede">This article reports an executed tuning analysis for the <code>IPF alveolar macrophage centroid</code>, comparing <code>focused</code> and <code>broad</code> planning modes.</p>
+          <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="wet-lab-guide.html">Wet Lab Guide</a>
+            <a href="tutorial.html">Tutorials</a>
+            <a href="real-data-case-study.html">Real Data Case Study</a>
+            <a href="reference.html">Reference</a>
+          </nav>
+        </div>
+        <aside class="hero-panel">
+          <div class="kicker">Question</div>
+          <p>How much recall can be recovered by raising the candidate budget for a heterogeneous neighborhood?</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <img src="assets/scenario-broad-state.png" alt="Broad-state tuning summary">
+    </section>
+
+    <section class="section">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Method</th><th>Query mode</th><th>Candidate count</th><th>Recall@100</th><th>Top-20 overlap</th><th>Avg latency (ms)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>turboquant-prod-b2</code></td><td><code>focused</code></td><td>2,048</td><td>0.14</td><td>0.20</td><td>53.70</td></tr>
+            <tr><td><code>turboquant-prod-b3</code></td><td><code>focused</code></td><td>2,048</td><td>0.15</td><td>0.10</td><td>61.78</td></tr>
+            <tr><td><code>turboquant-prod-b4</code></td><td><code>focused</code></td><td>2,048</td><td>0.15</td><td>0.10</td><td>59.73</td></tr>
+            <tr><td><code>turboquant-prod-b2</code></td><td><code>broad</code></td><td>8,192</td><td>0.62</td><td>0.70</td><td>53.44</td></tr>
+            <tr><td><code>turboquant-prod-b3</code></td><td><code>broad</code></td><td>8,192</td><td>0.63</td><td>0.60</td><td>52.72</td></tr>
+            <tr><td><code>turboquant-prod-b4</code></td><td><code>broad</code></td><td>8,192</td><td>0.58</td><td>0.65</td><td>47.61</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="story-grid">
+        <article class="mini-card">
+          <div class="kicker">What changed</div>
+          <p><code>broad</code> mode expanded the candidate pool from <code>2,048</code> to <code>8,192</code>.</p>
+        </article>
+        <article class="mini-card">
+          <div class="kicker">What improved</div>
+          <p>Recall rose from about <code>0.14-0.15</code> to about <code>0.58-0.63</code>.</p>
+        </article>
+        <article class="mini-card">
+          <div class="kicker">What it means</div>
+          <p>Broad biological neighborhoods should not be judged with the same candidate policy as compact rare states.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer">Executed artifacts: <code>artifacts/scenario_articles/broad_state_tuning_summary.csv</code> and <code>artifacts/scenario_articles/broad_state_thumbnail.png</code>.</p>
+  </main>
+</body>
+</html>

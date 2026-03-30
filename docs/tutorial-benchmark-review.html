@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TurboCell Atlas Tutorial: Benchmark Review</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow warm">Scenario Tutorial</div>
+          <h1>Review the benchmark bundle like an acceptance artifact, not a blog post.</h1>
+          <p class="lede">Use this tutorial when you need to decide whether a TurboCell Atlas run is convincing enough for scientific communication, internal review, or milestone acceptance.</p>
+          <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="get-started.html">Get Started</a>
+            <a href="wet-lab-guide.html">Wet Lab Guide</a>
+            <a href="tutorial.html">Tutorials</a>
+            <a href="real-data-case-study.html">Real Data Case Study</a>
+            <a href="reference.html">Reference</a>
+          </nav>
+        </div>
+        <aside class="hero-panel">
+          <div class="kicker">Review order</div>
+          <p><code>input_data_dictionary.csv</code> → <code>pipeline_stages.csv</code> → <code>query_definitions.csv</code> → <code>candidate_rerank_comparison.csv</code> → <code>benchmark_summary.csv</code> → <code>top_hits.csv</code>.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Artifact</th><th>What it answers</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>input_data_dictionary.csv</code></td><td>What exactly was in the input dataframe.</td></tr>
+            <tr><td><code>pipeline_stages.csv</code></td><td>What transformations were applied before retrieval.</td></tr>
+            <tr><td><code>query_definitions.csv</code></td><td>What biological populations defined the queries.</td></tr>
+            <tr><td><code>candidate_rerank_comparison.csv</code></td><td>How candidate generation differed from the final reranked result.</td></tr>
+            <tr><td><code>benchmark_summary.csv</code></td><td>What tradeoff each backend achieved.</td></tr>
+            <tr><td><code>top_hits.csv</code></td><td>What cells were actually returned.</td></tr>
+            <tr><td><code>artifact_index.csv</code></td><td>What else exists in the bundle and why.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="two-col">
+        <div class="notice">
+          <div class="kicker">Strong bundle</div>
+          <p>Inputs are named, process stages are explicit, candidate diagnostics are visible, and outputs are concrete tables and figures.</p>
+        </div>
+        <div class="notice">
+          <div class="kicker">Weak bundle</div>
+          <p>Only one final score table exists and no one can tell what data, queries, or candidate behavior produced it.</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer">This review pattern is the bridge between development output and stakeholder-facing evidence.</p>
+  </main>
+</body>
+</html>

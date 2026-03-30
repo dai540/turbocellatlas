@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: TurboCell Atlas
+message: "If you use TurboCell Atlas, please cite this software."
+type: software
+authors:
+  - family-names: Daiki
+version: 0.2.0
+license: MIT
+repository-code: https://github.com/daiki/turbocellatlas
+abstract: >
+  TurboCell Atlas is an atlas-scale single-cell retrieval prototype that combines
+  TurboQuant candidate generation with exact reranking in the original embedding space.
+keywords:
+  - single-cell
+  - retrieval
+  - bioinformatics
+  - quantization
+  - scimilarity

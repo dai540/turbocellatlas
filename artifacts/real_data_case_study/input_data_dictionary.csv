@@ -1,0 +1,15 @@
+field,table,dtype,non_null,n_unique,example,role
+celltype_raw,obs,category,50000,39.0,ncMonocyte,metadata context
+celltype_id,obs,category,49456,33.0,CL:0000875,metadata context
+sample,obs,category,50000,78.0,DS000011735-GSM4058976,metadata context
+study,obs,category,50000,1.0,DS000011735,metadata context
+n_counts,obs,float32,50000,49867.0,2849.6365,metadata context
+n_genes,obs,int64,50000,5371.0,1854,metadata context
+celltype_name,obs,category,49456,33.0,non-classical monocyte,query definition and hit interpretation
+doublet_score,obs,float32,50000,5266.0,0.14922066,metadata context
+pred_dbl,obs,boolean,50000,1.0,False,metadata context
+Disease,obs,category,50000,3.0,IPF,query definition and enrichment summary
+cell_id,obs,object,50000,50000.0,cell-0,stable output identifier
+query_group,obs,object,50000,101.0,IPF::non-classical monocyte,derived query grouping field
+X,adata,float32 sparse/dense after preprocessing,6400000,,SCimilarity log-normalized aligned expression matrix,embedding input matrix
+embedding,derived,float32,6400000,,128-dimensional SCimilarity vector,retrieval representation

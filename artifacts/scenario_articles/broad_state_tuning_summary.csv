@@ -1,0 +1,7 @@
+query,method,query_mode,candidate_count,planned_candidate_k,planned_oversample,recall_at_100_vs_exact,top20_overlap_vs_exact,avg_latency_ms,target_disease_fraction_top20
+IPF alveolar macrophage centroid,turboquant-prod-b2,focused,2048,512,4,0.14,0.2,44.41747998353094,0.5
+IPF alveolar macrophage centroid,turboquant-prod-b3,focused,2048,512,4,0.15,0.1,46.42003998160362,0.55
+IPF alveolar macrophage centroid,turboquant-prod-b4,focused,2048,512,4,0.15,0.1,45.905520021915436,0.55
+IPF alveolar macrophage centroid,turboquant-prod-b2,broad,8192,1024,8,0.62,0.7,48.179619992151856,0.6
+IPF alveolar macrophage centroid,turboquant-prod-b3,broad,8192,1024,8,0.63,0.6,51.95559998974204,0.55
+IPF alveolar macrophage centroid,turboquant-prod-b4,broad,8192,1024,8,0.58,0.65,47.46366001199931,0.65

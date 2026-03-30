@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turbocellatlas"
+version = "0.2.0"
+description = "TurboCell Atlas: atlas-scale cell-state retrieval with TurboQuant candidate generation and exact reranking."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Daiki"}]
+keywords = ["single-cell", "retrieval", "atlas", "quantization", "bioinformatics"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+  "numpy>=1.26",
+]
+
+[project.urls]
+Homepage = "https://github.com/daiki/turbocellatlas"
+Documentation = "https://github.com/daiki/turbocellatlas/tree/main/docs"
+Repository = "https://github.com/daiki/turbocellatlas"
+
+[project.optional-dependencies]
+io = [
+  "anndata>=0.10",
+  "PyYAML>=6.0",
+]
+bench = [
+  "hnswlib>=0.8.0",
+  "faiss-cpu>=1.8.0",
+]
+scimilarity = [
+  "scimilarity>=0.4.1",
+]
+dev = [
+  "pytest>=8.3",
+  "build>=1.2",
+]
+
+[project.scripts]
+tca = "tca.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

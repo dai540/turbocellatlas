@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TurboCell Atlas Tutorial Article: Cohort Triage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow warm">Tutorial Article</div>
+          <h1>The same query tells a different story once the cohort is filtered.</h1>
+          <p class="lede">This article reports an executed cohort-triage analysis for the <code>IPF alveolar macrophage centroid</code>, comparing whole-atlas retrieval with <code>IPF</code>-restricted retrieval.</p>
+          <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="wet-lab-guide.html">Wet Lab Guide</a>
+            <a href="tutorial.html">Tutorials</a>
+            <a href="real-data-case-study.html">Real Data Case Study</a>
+            <a href="reference.html">Reference</a>
+          </nav>
+        </div>
+        <aside class="hero-panel">
+          <div class="kicker">Question</div>
+          <p>What changes when retrieval is framed as disease-specific cohort triage instead of unrestricted atlas search?</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <img src="assets/scenario-cohort-triage.png" alt="Cohort triage disease composition">
+    </section>
+
+    <section class="section">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Scope</th><th>Method</th><th>Active cells</th><th>Avg latency (ms)</th><th>Top-20 alveolar macrophage fraction</th><th>Top-20 IPF fraction</th><th>Top-20 overlap vs exact</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>all_cells</code></td><td><code>exact</code></td><td>50,000</td><td>12.34</td><td>0.95</td><td>0.65</td><td>1.00</td></tr>
+            <tr><td><code>all_cells</code></td><td><code>turboquant-prod-b3</code></td><td>50,000</td><td>57.42</td><td>0.95</td><td>0.55</td><td>0.10</td></tr>
+            <tr><td><code>ipf_only</code></td><td><code>exact</code></td><td>23,803</td><td>8.97</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+            <tr><td><code>ipf_only</code></td><td><code>turboquant-prod-b3</code></td><td>23,803</td><td>29.37</td><td>0.90</td><td>1.00</td><td>0.30</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="story-grid">
+        <article class="mini-card">
+          <div class="kicker">Unfiltered atlas</div>
+          <p>The exact top-20 still mixes <code>IPF</code>, <code>healthy</code>, and <code>COPD</code> neighbors.</p>
+        </article>
+        <article class="mini-card">
+          <div class="kicker">IPF-only cohort</div>
+          <p>Both exact and TurboQuant return an all-<code>IPF</code> top-20 once the cohort is restricted.</p>
+        </article>
+        <article class="mini-card">
+          <div class="kicker">What it means</div>
+          <p>Metadata filters change the scientific interpretation of retrieval, so they belong in the main workflow and the final report.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer">Executed artifacts: <code>artifacts/scenario_articles/cohort_triage_summary.csv</code> and <code>artifacts/scenario_articles/cohort_triage_disease_composition.csv</code>.</p>
+  </main>
+</body>
+</html>

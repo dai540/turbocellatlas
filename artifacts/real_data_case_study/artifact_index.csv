@@ -1,0 +1,12 @@
+artifact,type,contents,purpose
+benchmark_summary.csv,table,per-query benchmark metrics,reporting and comparison
+benchmark_summary.json,json,benchmark manifest and metrics,machine-readable report
+benchmark_log.jsonl,jsonl,structured TurboQuant diagnostics,audit and tuning
+top_hits.csv,table,top-ranked hits per method,inspection and article examples
+candidate_rerank_comparison.csv,table,candidate vs rerank overlap summaries,method traceability
+query_definitions.csv,table,query construction details,query provenance
+input_data_dictionary.csv,table,field-level input dictionary,input traceability
+pipeline_stages.csv,table,stage-by-stage process summary,process traceability
+artifact_index.csv,table,artifact catalog,navigation
+benchmark_summary.png,figure,recall and latency summary plot,article figure
+benchmark_report.md,markdown,compact benchmark report,human-readable summary

@@ -1,0 +1,3 @@
+cell_id,Disease,tissue,study,sample,celltype_name
+cell-0001,IPF,lung,Study-A,Sample-01,myofibroblast cell
+cell-0002,healthy,lung,Study-A,Sample-02,alveolar macrophage

@@ -1,0 +1,12 @@
+{
+  "bit_width": 3,
+  "candidate_k": 128,
+  "rerank_k": 20,
+  "oversample": 2,
+  "seed": 7,
+  "quantizer_kind": "prod",
+  "lloyd_max_iter": 100,
+  "lloyd_tol": 1e-06,
+  "monte_carlo_samples": 20000,
+  "store_original_embeddings": true
+}

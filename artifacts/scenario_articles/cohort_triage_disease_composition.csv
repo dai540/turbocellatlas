@@ -1,0 +1,5 @@
+scope_method,IPF,healthy,COPD
+all_cells: exact,13,3,4
+all_cells: turbo,11,3,6
+ipf_only: exact,20,0,0
+ipf_only: turbo,20,0,0

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TurboCell Atlas - Theory and Design</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Theory and Design</div>
+      <h1>Why the system is split into a biological embedding layer and a compressed retrieval layer.</h1>
+      <p class="lede">This page explains the project's theory, design tradeoffs, and architecture so the package reads as a system, not just a set of functions.</p>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="get-started.html">Get Started</a>
+        <a href="wet-lab-guide.html">Wet Lab Guide</a>
+        <a href="tutorial.html">Tutorials</a>
+        <a href="theory-and-design.html">Theory and Design</a>
+        <a href="real-data-case-study.html">Real Data Case Study</a>
+        <a href="reference.html">Reference</a>
+      </nav>
+    </section>
+
+    <section class="section">
+      <h2>Problem framing</h2>
+      <p>Single-cell atlas retrieval asks for both semantic fidelity and operational efficiency. TurboCell Atlas treats those as different layers. A strong upstream embedding model captures biology. TurboQuant makes candidate search lighter. Exact reranking protects the final ranking.</p>
+    </section>
+
+    <section class="section">
+      <h2>Why exact reranking stays in the design</h2>
+      <p>Nearest-neighbor differences in atlas space can change interpretation, enrichment results, and which cell states appear most relevant. For that reason, approximation is allowed for candidate generation, but not trusted as the final ranking by default.</p>
+    </section>
+
+    <section class="section">
+      <h2>Architecture</h2>
+      <p><code>tca.config</code> validates search settings. <code>tca.quantization</code> owns TurboQuant encoding. <code>tca.pipeline</code> owns filtering, candidate generation, and reranking. <code>tca.io</code> handles local inputs. <code>tca.benchmarks</code> keeps alternative search baselines isolated from the core.</p>
+    </section>
+  </main>
+</body>
+</html>

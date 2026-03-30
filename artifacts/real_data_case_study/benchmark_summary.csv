@@ -1,0 +1,13 @@
+query,method,recall_at_100_vs_exact,top20_overlap_vs_exact,avg_latency_ms,candidate_memory_mb,query_mode,target_celltype_fraction_top20,target_disease_fraction_top20
+IPF myofibroblast centroid,exact,1.0,1.0,11.978400009684265,24.4140625,focused,1.0,1.0
+IPF myofibroblast centroid,turboquant-prod-b2,1.0,1.0,53.70823999401182,1.71661376953125,focused,1.0,1.0
+IPF myofibroblast centroid,turboquant-prod-b3,1.0,1.0,47.33991997782141,2.47955322265625,focused,1.0,1.0
+IPF myofibroblast centroid,turboquant-prod-b4,1.0,1.0,45.34780003596097,3.24249267578125,focused,1.0,1.0
+IPF myofibroblast centroid,faiss-pq-m8-nbits8,0.3,0.05,0.17010001465678215,0.5065517425537109,focused,1.0,0.9
+IPF myofibroblast centroid,hnswlib-cosine,1.0,1.0,0.10221998672932386,31.686450958251953,focused,1.0,1.0
+IPF alveolar macrophage centroid,exact,1.0,1.0,10.462020034901798,24.4140625,broad,0.95,0.65
+IPF alveolar macrophage centroid,turboquant-prod-b2,0.62,0.7,47.511879983358085,1.71661376953125,broad,1.0,0.6
+IPF alveolar macrophage centroid,turboquant-prod-b3,0.63,0.6,59.065760020166636,2.47955322265625,broad,0.95,0.55
+IPF alveolar macrophage centroid,turboquant-prod-b4,0.58,0.65,55.02740000374615,3.24249267578125,broad,0.95,0.65
+IPF alveolar macrophage centroid,faiss-pq-m8-nbits8,0.03,0.0,0.2744199940934777,0.5065517425537109,broad,0.9,0.55
+IPF alveolar macrophage centroid,hnswlib-cosine,1.0,1.0,0.3542599966749549,31.686450958251953,broad,0.95,0.65

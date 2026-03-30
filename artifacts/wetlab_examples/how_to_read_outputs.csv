@@ -1,0 +1,5 @@
+thing,plain_meaning,file
+top hit table,which cells came back first,myofibroblast_top10.csv
+top-20 IPF fraction,how disease-specific the results look,cohort_triage_readout.csv
+recall@100 vs exact,how similar the method is to exact search,rare_state_summary.csv / broad_state_readout.csv
+candidate memory,how much memory the compressed search layer needs,rare_state_summary.csv
