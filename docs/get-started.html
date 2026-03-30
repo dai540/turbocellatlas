@@ -3,83 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TurboCell Atlas - Get Started</title>
+  <title>TurboCell Atlas get started</title>
   <link rel="icon" type="image/svg+xml" href="assets/tca-icon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <div class="brand">
-        <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
-        <div class="brand-stack">
-          <div class="eyebrow">Get Started</div>
-          <div class="brand-title">TurboCell Atlas</div>
-        </div>
-      </div>
-      <h1>Run your first TurboCell Atlas search.</h1>
-      <p class="lede">This page gets the package running from local embedding files with the smallest practical setup.</p>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="get-started.html">Get Started</a>
-        <a href="wet-lab-guide.html">Wet Lab Guide</a>
-        <a href="tutorial.html">Tutorials</a>
-        <a href="theory-and-design.html">Theory and Design</a>
-        <a href="real-data-case-study.html">Real Data Case Study</a>
-        <a href="reference.html">Reference</a>
-      </nav>
-    </section>
-
-    <section class="section">
-      <h2>Install</h2>
-      <pre><code>pip install -e .
-
-pip install -e .[io,bench,dev]</code></pre>
-      <p><code>io</code> enables <code>.h5ad</code> loading, <code>bench</code> enables HNSW and FAISS-PQ, and <code>dev</code> enables tests.</p>
-    </section>
-
-    <section class="section">
-      <h2>Prepare input files</h2>
-      <p>Use a reference embedding bank in <code>.npy</code> or <code>.npz</code>, a metadata table in <code>.jsonl</code>, <code>.json</code>, or <code>.csv</code>, and a query vector in <code>.npy</code>.</p>
-      <pre><code>{"cell_id": "cell-0001", "study": "ILD-demo", "disease": "fibrosis", "tissue": "lung"}</code></pre>
-      <p>The easiest starting files are <code>configs/wetlab_metadata_template.csv</code> and <code>notebooks/wet_lab_walkthrough.ipynb</code>.</p>
-    </section>
-
-    <section class="section">
-      <h2>CLI example</h2>
-      <pre><code>tca search ^
+  <header class="topbar"><div class="topbar-inner"><a class="brand-link" href="index.html"><img src="assets/tca-icon.svg" alt="TurboCell Atlas icon"><div class="brand-copy"><strong>TurboCell Atlas</strong><span>atlas-scale retrieval in Python</span></div></a><nav class="topnav"><a href="index.html">Home</a><a class="active" href="tutorial.html">Tutorials</a><a href="guides.html">Guides</a><a href="api.html">API</a><a href="benchmarks.html">Benchmarks</a></nav></div></header>
+  <main class="layout">
+    <aside class="sidebar"><div class="sidebar-group"><h2>Tutorials</h2><ul><li><a href="tutorial.html">Tutorials overview</a></li><li><a class="active" href="get-started.html">Get Started</a></li><li><a href="wet-lab-guide.html">Wet Lab Guide</a></li></ul></div></aside>
+    <div class="content">
+      <section class="hero"><div class="eyebrow">Tutorials</div><h1>Install the package, fetch the demo assets, and run the first search.</h1><p class="lede">This page is the shortest path from a fresh clone to a working local example.</p></section>
+      <section class="section"><h2>Install</h2><pre><code>pip install -e .[io,bench,dev]</code></pre><p>Or create a local environment with:</p><pre><code>conda env create -f environment.yml</code></pre></section>
+      <section class="section"><h2>Demo assets</h2><pre><code>python scripts/setup_demo_assets.py</code></pre><p>This downloads the public SCimilarity tutorial dataset and model assets used in the docs.</p></section>
+      <section class="section"><h2>First files to inspect</h2><ul><li><code>configs/wetlab_metadata_template.csv</code></li><li><code>notebooks/wet_lab_walkthrough.ipynb</code></li></ul></section>
+      <section class="section"><h2>First search</h2><pre><code>tca search ^
   --embeddings data/reference.npy ^
   --metadata data/reference.jsonl ^
   --query data/query.npy ^
-  --bit-width 3 ^
-  --candidate-k 128 ^
-  --rerank-k 20 ^
-  --output artifacts/results.json</code></pre>
-      <p>You can add metadata filters such as <code>--filter disease=fibrosis</code> and <code>--filter tissue=lung</code>.</p>
-    </section>
-
-    <section class="section">
-      <h2>Python API example</h2>
-      <pre><code>import numpy as np
-from tca import SearchIndex, TurboQuantConfig
-
-embeddings = np.load("data/reference.npy").astype(np.float32)
-query = np.load("data/query.npy").astype(np.float32)[0]
-metadata = [{"cell_id": "cell-0", "disease": "fibrosis"}]
-
-index = SearchIndex.from_embeddings(
-    embeddings=embeddings,
-    metadata=metadata,
-    config=TurboQuantConfig(bit_width=3, candidate_k=128, rerank_k=20, quantizer_kind="prod", seed=7),
-)
-
-results = index.search(query, filters={"disease": "fibrosis"})</code></pre>
-    </section>
-
-    <section class="section">
-      <h2>Wet-lab shortcut</h2>
-      <p>If you are not primarily a computational user, the shortest path is: read <code>Wet Lab Guide</code>, copy the metadata shape from <code>configs/wetlab_metadata_template.csv</code>, open <code>notebooks/wet_lab_walkthrough.ipynb</code>, and compare your first output with the example files in <code>artifacts/wetlab_examples/</code>.</p>
-    </section>
+  --output artifacts/results.json</code></pre></section>
+    </div>
   </main>
 </body>
 </html>

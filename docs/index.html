@@ -3,163 +3,126 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TurboCell Atlas Docs</title>
+  <title>TurboCell Atlas documentation</title>
   <link rel="icon" type="image/svg+xml" href="assets/tca-icon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="brand">
-            <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
-            <div class="brand-stack">
-              <div class="eyebrow">TurboCell Atlas</div>
-              <div class="brand-title">Compressed atlas retrieval</div>
-            </div>
-          </div>
-          <h1>Atlas retrieval docs built around workflows, evidence, and reviewability.</h1>
-          <p class="lede">TurboCell Atlas compresses candidate generation with TurboQuant and restores final ranking with exact reranking in the original embedding space. The docs now reflect how people actually use the system: getting started, following scenario tutorials, reading design rationale, and inspecting executed benchmark artifacts.</p>
-          <div class="chip-row">
-            <div class="chip">SCimilarity-native embeddings</div>
-            <div class="chip">TurboQuant candidate compression</div>
-            <div class="chip">Exact reranking</div>
-            <div class="chip">Traceable output bundle</div>
-          </div>
-          <nav class="nav">
-            <a href="get-started.html">Get Started</a>
-            <a href="wet-lab-guide.html">Wet Lab Guide</a>
-            <a href="tutorial.html">Tutorials</a>
-            <a href="theory-and-design.html">Theory and Design</a>
-            <a href="real-data-case-study.html">Real Data Case Study</a>
-            <a href="reference.html">Reference</a>
-          </nav>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-link" href="index.html">
+        <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
+        <div class="brand-copy">
+          <strong>TurboCell Atlas</strong>
+          <span>atlas-scale retrieval in Python</span>
         </div>
-        <aside class="hero-panel">
-          <div class="kicker">Fast orientation</div>
-          <div class="steps">
-            <div class="step">
-              <div class="step-no">1</div>
-              <div>Run a minimal search in <a class="link" href="get-started.html">Get Started</a>.</div>
-            </div>
-            <div class="step">
-              <div class="step-no">2</div>
-              <div>Pick a scenario in <a class="link" href="tutorial.html">Tutorials</a>.</div>
-            </div>
-            <div class="step">
-              <div class="step-no">3</div>
-              <div>Inspect the measured artifact chain in <a class="link" href="real-data-case-study.html">Real Data Case Study</a>.</div>
-            </div>
-          </div>
-        </aside>
+      </a>
+      <nav class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="tutorial.html">Tutorials</a>
+        <a href="guides.html">Guides</a>
+        <a href="api.html">API</a>
+        <a href="benchmarks.html">Benchmarks</a>
+      </nav>
+    </div>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-group">
+        <h2>Overview</h2>
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="tutorial.html">Tutorials</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="api.html">API</a></li>
+          <li><a href="benchmarks.html">Benchmarks</a></li>
+        </ul>
       </div>
-    </section>
-
-    <section class="band">
-      <div class="two-col">
-        <div>
-          <div class="kicker">Information architecture</div>
-          <h2>The site is now organized by intent, not by file type.</h2>
-          <p>Readers can move from setup to scenario-specific tutorials and then into an executed benchmark article with explicit input, process, and output traceability. The goal is to make the system easier to adopt and easier to judge.</p>
+      <div class="sidebar-group">
+        <h2>Project</h2>
+        <ul>
+          <li><a href="contributing.html">Contributing</a></li>
+          <li><a href="release-notes.html">Release notes</a></li>
+          <li><a href="references.html">References</a></li>
+        </ul>
+      </div>
+    </aside>
+    <div class="content">
+      <section class="hero">
+        <div class="eyebrow">Documentation</div>
+        <h1>TurboCell Atlas is a Python package for atlas-scale single-cell retrieval.</h1>
+        <p class="lede">It combines compressed candidate generation with exact reranking in the original embedding space, and it ships with executed benchmark articles, wet-lab-friendly walkthroughs, and reproducible artifacts.</p>
+        <div class="badge-row">
+          <div class="badge">SCimilarity-native workflows</div>
+          <div class="badge">TurboQuant candidate compression</div>
+          <div class="badge">Exact reranking</div>
+          <div class="badge">Executed benchmark articles</div>
         </div>
-        <div class="metric-strip">
-          <div class="metric"><strong>5</strong>scenario tutorials</div>
-          <div class="metric"><strong>1</strong>executed case study</div>
-          <div class="metric"><strong>5</strong>major doc sections</div>
+      </section>
+
+      <section class="section">
+        <h2>Site map</h2>
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Tutorials</h3>
+            <p>Practical entry points for first runs and worked examples.</p>
+            <a href="tutorial.html">Open Tutorials</a>
+          </article>
+          <article class="card">
+            <h3>Guides</h3>
+            <p>How to think about data, queries, reports, and interpretation.</p>
+            <a href="guides.html">Open Guides</a>
+          </article>
+          <article class="card">
+            <h3>API</h3>
+            <p>Package surface area, classes, and CLI usage.</p>
+            <a href="api.html">Open API</a>
+          </article>
+          <article class="card">
+            <h3>Benchmarks</h3>
+            <p>Executed case studies and measured scenario articles.</p>
+            <a href="benchmarks.html">Open Benchmarks</a>
+          </article>
+          <article class="card">
+            <h3>Contributing</h3>
+            <p>How to contribute safely to the project.</p>
+            <a href="contributing.html">Open Contributing</a>
+          </article>
+          <article class="card">
+            <h3>References</h3>
+            <p>Citations, dataset provenance, and external links.</p>
+            <a href="references.html">Open References</a>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section">
-      <div class="kicker">Choose your path</div>
-      <div class="scenario-grid">
-        <article class="card">
-          <img src="assets/wetlab-use-cases.png" alt="Wet-lab use cases">
-          <h3>Wet Lab Guide</h3>
-          <p>Read the easiest entry point first: what to put in, what comes back, and how to read the outputs in plain language.</p>
-          <a href="wet-lab-guide.html">Open guide</a>
-        </article>
-        <article class="card">
-          <h3>Get Started</h3>
-          <p>Install the package, prepare embeddings and metadata, and run the smallest practical search through the CLI or Python API.</p>
-          <a href="get-started.html">Open guide</a>
-        </article>
-        <article class="card">
-          <h3>Tutorials</h3>
-          <p>Read scenario-based articles for rare-state retrieval, metadata-guided cohort triage, broad-state tuning, and benchmark review.</p>
-          <a href="tutorial.html">Open tutorials</a>
-        </article>
-        <article class="card">
-          <h3>Theory and Design</h3>
-          <p>Understand why candidate compression is isolated from final ranking and how the modules are designed around that decision.</p>
-          <a href="theory-and-design.html">Open theory</a>
-        </article>
-        <article class="card">
-          <h3>Real Data Case Study</h3>
-          <p>See the full chain from AnnData input and query definition to candidate diagnostics, ranked outputs, and summary figures.</p>
-          <a href="real-data-case-study.html">Open case study</a>
-        </article>
-      </div>
-    </section>
+      <section class="section">
+        <h2>Quick links</h2>
+        <div class="grid cols-2">
+          <article class="card">
+            <img src="assets/wetlab-use-cases.png" alt="Wet-lab use cases">
+            <h3>Wet Lab Guide</h3>
+            <p>The easiest entry point for wet researchers and collaborative teams.</p>
+            <a href="wet-lab-guide.html">Open guide</a>
+          </article>
+          <article class="card">
+            <img src="assets/scenario-rare-state.png" alt="Rare-state article">
+            <h3>Rare-State Retrieval</h3>
+            <p>The current strongest executed success case for TurboQuant.</p>
+            <a href="tutorial-rare-state.html">Open article</a>
+          </article>
+        </div>
+      </section>
 
-    <section class="section">
-      <div class="kicker">Tutorial scenarios</div>
-      <div class="story-grid">
-        <article class="mini-card">
-          <img src="assets/wetlab-use-cases.png" alt="Wet-lab guide thumbnail">
-          <h3>Wet-Lab Entry</h3>
-          <p>Start with plain-language explanations of the inputs, outputs, and the easiest ways to interpret them.</p>
-          <a href="wet-lab-guide.html">Read guide</a>
-        </article>
-        <article class="mini-card">
-          <img src="assets/scenario-rare-state.png" alt="Rare-state retrieval thumbnail">
-          <h3>Rare-State Retrieval</h3>
-          <p>Understand the strongest success case for TurboQuant and how to read neighborhood preservation.</p>
-          <a href="tutorial-rare-state.html">Read article</a>
-        </article>
-        <article class="mini-card">
-          <img src="assets/scenario-single-cell.png" alt="Single-cell query thumbnail">
-          <h3>Single-Cell Query</h3>
-          <p>Start from one interesting cell and inspect whether the local neighborhood already matches the biology you expect.</p>
-          <a href="tutorial-single-cell.html">Read article</a>
-        </article>
-        <article class="mini-card">
-          <img src="assets/scenario-cohort-triage.png" alt="Cohort triage thumbnail">
-          <h3>Cohort Triage</h3>
-          <p>Use disease, tissue, study, or sample filters to keep retrieval biologically honest.</p>
-          <a href="tutorial-cohort-triage.html">Read article</a>
-        </article>
-        <article class="mini-card">
-          <img src="assets/scenario-broad-state.png" alt="Broad-state tuning thumbnail">
-          <h3>Broad-State Tuning</h3>
-          <p>Increase candidate coverage and inspect diagnostics for diffuse biological neighborhoods.</p>
-          <a href="tutorial-broad-state.html">Read article</a>
-        </article>
-        <article class="mini-card">
-          <h3>Benchmark Review</h3>
-          <p>Review the artifact bundle as an acceptance package instead of only a narrative result page.</p>
-          <a href="tutorial-benchmark-review.html">Read article</a>
-        </article>
-      </div>
-    </section>
+      <section class="section">
+        <h2>Current status</h2>
+        <div class="callout">
+          Best current success case: rare or coherent disease-state retrieval. Main current limitation: TurboQuant remains slower than exact search in this Python prototype.
+        </div>
+      </section>
 
-    <section class="section">
-      <div class="kicker">Input to output</div>
-      <div class="flow">
-        <div class="flow-item">Input schema: <code>input_data_dictionary.csv</code></div>
-        <div class="flow-arrow">&darr;</div>
-        <div class="flow-item">Process stages: <code>pipeline_stages.csv</code></div>
-        <div class="flow-arrow">&darr;</div>
-        <div class="flow-item">Query provenance: <code>query_definitions.csv</code></div>
-        <div class="flow-arrow">&darr;</div>
-        <div class="flow-item">Candidate versus rerank behavior: <code>candidate_rerank_comparison.csv</code></div>
-        <div class="flow-arrow">&darr;</div>
-        <div class="flow-item">Final tables and figure: <code>top_hits.csv</code>, <code>benchmark_summary.csv</code>, <code>benchmark_summary.png</code></div>
-      </div>
-    </section>
-
-    <p class="footer">Markdown versions of every page live beside these HTML pages in <code>docs/</code>.</p>
+      <p class="footer">Static docs site: <a href="https://dai540.github.io/turbocellatlas/">https://dai540.github.io/turbocellatlas/</a></p>
+    </div>
   </main>
 </body>
 </html>

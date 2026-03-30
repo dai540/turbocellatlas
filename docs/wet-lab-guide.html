@@ -3,109 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TurboCell Atlas Wet Lab Guide</title>
+  <title>TurboCell Atlas wet-lab guide</title>
   <link rel="icon" type="image/svg+xml" href="assets/tca-icon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="brand">
-            <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
-            <div class="brand-stack">
-              <div class="eyebrow warm">Wet Lab Guide</div>
-              <div class="brand-title">TurboCell Atlas</div>
-            </div>
-          </div>
-          <h1>What to put in, what comes back, and how to read it.</h1>
-          <p class="lede">This page is the easy entry point for wet researchers. It uses executed analyses on the SCimilarity tutorial dataset and explains the outputs in plain language before asking you to care about the algorithm.</p>
-          <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="get-started.html">Get Started</a>
-            <a href="wet-lab-guide.html">Wet Lab Guide</a>
-            <a href="tutorial.html">Tutorials</a>
-            <a href="real-data-case-study.html">Real Data Case Study</a>
-          </nav>
-        </div>
-        <aside class="hero-panel">
-          <div class="kicker">In one sentence</div>
-          <p>If I describe one cell state that I care about, what similar cells can I find in a large atlas?</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="two-col">
-        <div class="notice">
-          <div class="kicker">What you put in</div>
-          <p>A reference atlas, a query state such as a centroid of annotated cells, and optional filters such as disease or tissue.</p>
-        </div>
-        <div class="notice">
-          <div class="kicker">What you get back</div>
-          <p>A ranked list of similar cells, summary tables for interpretation, and figures that compare methods or search settings.</p>
-        </div>
-      </div>
-      <p>The easiest starting files are <code>configs/wetlab_metadata_template.csv</code> and <code>notebooks/wet_lab_walkthrough.ipynb</code>.</p>
-    </section>
-
-    <section class="section">
-      <img src="assets/wetlab-use-cases.png" alt="Wet-lab use cases summary">
-    </section>
-
-    <section class="section">
-      <div class="story-grid">
-        <article class="mini-card">
-          <h3>Rare-state lookup</h3>
-          <p><strong>Question:</strong> If I search with an <code>IPF myofibroblast</code> state, do I get back the same kind of cells?</p>
-          <p><strong>Observed:</strong> Yes. TurboQuant and exact returned the same top-100 neighborhood.</p>
-          <a href="tutorial-rare-state.html">Open article</a>
-        </article>
-        <article class="mini-card">
-          <h3>Cohort triage</h3>
-          <p><strong>Question:</strong> Should I search inside the whole atlas or only inside <code>IPF</code> cells?</p>
-          <p><strong>Observed:</strong> The story changed. <code>IPF</code>-only filtering turned the top-20 from mixed disease to all-<code>IPF</code>.</p>
-          <a href="tutorial-cohort-triage.html">Open article</a>
-        </article>
-        <article class="mini-card">
-          <h3>Single-cell lookup</h3>
-          <p><strong>Question:</strong> I only have one interesting cell. Can I still start searching?</p>
-          <p><strong>Observed:</strong> Yes. One real <code>IPF myofibroblast</code> cell already recovered a coherent local neighborhood.</p>
-          <a href="tutorial-single-cell.html">Open article</a>
-        </article>
-        <article class="mini-card">
-          <h3>Broad-state search</h3>
-          <p><strong>Question:</strong> What if my query is broad and the first result looks weak?</p>
-          <p><strong>Observed:</strong> Broad planning raised recall from about <code>0.15</code> to about <code>0.63</code>.</p>
-          <a href="tutorial-broad-state.html">Open article</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="kicker">How to read the outputs</div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Output</th><th>Plain meaning</th><th>How to use it</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>top hit table</code></td><td>which cells came back first</td><td>check whether the cell type and disease labels make biological sense</td></tr>
-            <tr><td><code>top-20 IPF fraction</code></td><td>how disease-specific the result looks</td><td>if low, your cohort or query may be too broad</td></tr>
-            <tr><td><code>recall@100 vs exact</code></td><td>how similar the approximate result is to exact search</td><td>higher is better; low values mean exploratory use only</td></tr>
-            <tr><td><code>candidate memory</code></td><td>how much memory the compressed layer uses</td><td>lower is useful only if the biological answer remains sensible</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="kicker">Useful files</div>
-      <p><code>artifacts/wetlab_examples/myofibroblast_top10.csv</code>, <code>artifacts/wetlab_examples/cohort_triage_readout.csv</code>, <code>artifacts/wetlab_examples/broad_state_readout.csv</code>, and <code>artifacts/wetlab_examples/how_to_read_outputs.csv</code>.</p>
-    </section>
-
-    <p class="footer">This guide is meant to be read before the deeper scenario articles and before the full real-data case study.</p>
+  <header class="topbar"><div class="topbar-inner"><a class="brand-link" href="index.html"><img src="assets/tca-icon.svg" alt="TurboCell Atlas icon"><div class="brand-copy"><strong>TurboCell Atlas</strong><span>atlas-scale retrieval in Python</span></div></a><nav class="topnav"><a href="index.html">Home</a><a class="active" href="tutorial.html">Tutorials</a><a href="guides.html">Guides</a><a href="api.html">API</a><a href="benchmarks.html">Benchmarks</a></nav></div></header>
+  <main class="layout">
+    <aside class="sidebar"><div class="sidebar-group"><h2>Tutorials</h2><ul><li><a href="tutorial.html">Tutorials overview</a></li><li><a href="get-started.html">Get Started</a></li><li><a class="active" href="wet-lab-guide.html">Wet Lab Guide</a></li></ul></div></aside>
+    <div class="content">
+      <section class="hero"><div class="eyebrow warm">Tutorials</div><h1>The easiest reading path for wet-lab collaborators.</h1><p class="lede">Use this page when you want to understand what goes in, what comes out, and how to read the outputs before diving into algorithm details.</p></section>
+      <section class="section"><img class="figure" src="assets/wetlab-use-cases.png" alt="Wet-lab use cases"></section>
+      <section class="section"><h2>What you put in</h2><ul><li>a reference atlas represented as embeddings plus metadata</li><li>one query state, often a centroid or one interesting cell</li><li>optional filters such as disease or tissue</li></ul><h2>What you get back</h2><ul><li>a ranked table of similar cells</li><li>summary tables for biological interpretation</li><li>figures showing what changed across methods or settings</li></ul></section>
+      <section class="section"><h2>Start with these files</h2><ul><li><code>configs/wetlab_metadata_template.csv</code></li><li><code>notebooks/wet_lab_walkthrough.ipynb</code></li><li><code>artifacts/wetlab_examples/</code></li></ul></section>
+    </div>
   </main>
 </body>
 </html>

@@ -1,18 +1,27 @@
 site_name: TurboCell Atlas
-site_description: Atlas-scale cell-state retrieval with TurboQuant and exact reranking.
+site_description: Atlas-scale single-cell retrieval with TurboQuant candidate generation and exact reranking.
 site_url: https://dai540.github.io/turbocellatlas
 theme:
   name: mkdocs
 nav:
   - Home: index.md
-  - Get Started: get-started.md
-  - Wet Lab Guide: wet-lab-guide.md
-  - Tutorials: tutorial.md
-  - Rare-State Retrieval: tutorial-rare-state.md
-  - Single-Cell Query: tutorial-single-cell.md
-  - Cohort Triage: tutorial-cohort-triage.md
-  - Broad-State Tuning: tutorial-broad-state.md
-  - Benchmark Review: tutorial-benchmark-review.md
-  - Theory and Design: theory-and-design.md
-  - Real Data Case Study: real-data-case-study.md
-  - Reference: reference.md
+  - Tutorials:
+      - Tutorials overview: tutorial.md
+      - Get Started: get-started.md
+      - Wet Lab Guide: wet-lab-guide.md
+      - Rare-State Retrieval: tutorial-rare-state.md
+      - Single-Cell Query: tutorial-single-cell.md
+      - Cohort Triage: tutorial-cohort-triage.md
+      - Broad-State Tuning: tutorial-broad-state.md
+      - Benchmark Review: tutorial-benchmark-review.md
+  - Guides:
+      - Guides overview: guides.md
+      - Theory and Design: theory-and-design.md
+      - Real Data Case Study: real-data-case-study.md
+  - API:
+      - API overview: api.md
+      - Reference: reference.md
+  - Benchmarks: benchmarks.md
+  - Contributing: contributing.md
+  - Release notes: release-notes.md
+  - References: references.md

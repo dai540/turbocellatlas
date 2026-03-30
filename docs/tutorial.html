@@ -3,105 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TurboCell Atlas Tutorials</title>
+  <title>TurboCell Atlas tutorials</title>
   <link rel="icon" type="image/svg+xml" href="assets/tca-icon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="brand">
-            <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
-            <div class="brand-stack">
-              <div class="eyebrow">Tutorials</div>
-              <div class="brand-title">TurboCell Atlas</div>
-            </div>
-          </div>
-          <h1>Learn TurboCell Atlas through concrete retrieval scenarios.</h1>
-          <p class="lede">This section is now organized around use cases rather than a single generic walkthrough. Each tutorial answers a different practical question: rare-state discovery, metadata-guided triage, broad-state tuning, or benchmark review.</p>
-          <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="get-started.html">Get Started</a>
-            <a href="wet-lab-guide.html">Wet Lab Guide</a>
-            <a href="tutorial.html">Tutorials</a>
-            <a href="theory-and-design.html">Theory and Design</a>
-            <a href="real-data-case-study.html">Real Data Case Study</a>
-            <a href="reference.html">Reference</a>
-          </nav>
-        </div>
-        <aside class="hero-panel">
-          <div class="kicker">Reading path</div>
-          <div class="steps">
-            <div class="step">
-              <div class="step-no">1</div>
-              <div>Run <a class="link" href="get-started.html">Get Started</a> for the smallest working search.</div>
-            </div>
-            <div class="step">
-              <div class="step-no">2</div>
-              <div>Choose the scenario that matches the question you are actually asking.</div>
-            </div>
-            <div class="step">
-              <div class="step-no">3</div>
-              <div>Move into the <a class="link" href="real-data-case-study.html">Real Data Case Study</a> once you need measured outputs.</div>
-            </div>
-          </div>
-        </aside>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-link" href="index.html"><img src="assets/tca-icon.svg" alt="TurboCell Atlas icon"><div class="brand-copy"><strong>TurboCell Atlas</strong><span>atlas-scale retrieval in Python</span></div></a>
+      <nav class="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="tutorial.html">Tutorials</a>
+        <a href="guides.html">Guides</a>
+        <a href="api.html">API</a>
+        <a href="benchmarks.html">Benchmarks</a>
+      </nav>
+    </div>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-group">
+        <h2>Tutorials</h2>
+        <ul>
+          <li><a class="active" href="tutorial.html">Tutorials overview</a></li>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="wet-lab-guide.html">Wet Lab Guide</a></li>
+          <li><a href="tutorial-rare-state.html">Rare-State Retrieval</a></li>
+          <li><a href="tutorial-single-cell.html">Single-Cell Query</a></li>
+          <li><a href="tutorial-cohort-triage.html">Cohort Triage</a></li>
+          <li><a href="tutorial-broad-state.html">Broad-State Tuning</a></li>
+          <li><a href="tutorial-benchmark-review.html">Benchmark Review</a></li>
+        </ul>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="kicker">Scenario library</div>
-      <div class="scenario-grid">
-        <article class="card">
-          <img src="assets/scenario-rare-state.png" alt="Rare-state retrieval thumbnail">
-          <h3>Rare-State Retrieval</h3>
-          <p>Read the executed `IPF myofibroblast centroid` analysis where TurboQuant preserved the exact top-100 neighborhood with a much smaller candidate layer.</p>
-          <a href="tutorial-rare-state.html">Open article</a>
-        </article>
-        <article class="card">
-          <img src="assets/scenario-single-cell.png" alt="Single-cell query thumbnail">
-          <h3>Single-Cell Query</h3>
-          <p>See an executed example where one real `IPF myofibroblast` cell already retrieves a coherent local neighborhood.</p>
-          <a href="tutorial-single-cell.html">Open article</a>
-        </article>
-        <article class="card">
-          <img src="assets/scenario-cohort-triage.png" alt="Cohort triage thumbnail">
-          <h3>Cohort Triage</h3>
-          <p>See how the top-20 disease composition changes when the same alveolar macrophage query is searched in the full atlas versus an `IPF`-only cohort.</p>
-          <a href="tutorial-cohort-triage.html">Open article</a>
-        </article>
-        <article class="card">
-          <img src="assets/scenario-broad-state.png" alt="Broad-state tuning thumbnail">
-          <h3>Broad-State Tuning</h3>
-          <p>Compare `focused` and `broad` planning on a heterogeneous macrophage query and see how recall changes when the candidate pool grows.</p>
-          <a href="tutorial-broad-state.html">Open article</a>
-        </article>
-        <article class="card">
-          <h3>Benchmark Review</h3>
-          <p>Read the artifact bundle like an acceptance reviewer: input schema, process stages, candidate diagnostics, and outputs.</p>
-          <a href="tutorial-benchmark-review.html">Open article</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="two-col">
-        <div>
-          <div class="kicker">Why this structure changed</div>
-          <h2>One tutorial was hiding the actual ways people use the system.</h2>
-          <p>TurboCell Atlas is not only a package API. It is a retrieval workflow. Some readers need to understand why rare-state retrieval works, some need to apply metadata filters, and some need to judge whether the benchmark artifacts are convincing enough to trust.</p>
+    </aside>
+    <div class="content">
+      <section class="hero">
+        <div class="eyebrow">Tutorials</div>
+        <h1>Tutorials are the fastest way to see TurboCell Atlas in action.</h1>
+        <p class="lede">Use this section for first runs, wet-lab-friendly walkthroughs, and scenario-specific executed examples.</p>
+      </section>
+      <section class="section">
+        <h2>Entry points</h2>
+        <div class="grid cols-2">
+          <article class="card"><h3>Get Started</h3><p>Install the package, prepare inputs, and run the first search.</p><a href="get-started.html">Open tutorial</a></article>
+          <article class="card"><h3>Wet Lab Guide</h3><p>The easiest path for non-computational users.</p><a href="wet-lab-guide.html">Open tutorial</a></article>
         </div>
-        <div class="metric-strip">
-          <div class="metric"><strong>5</strong>scenario articles</div>
-          <div class="metric"><strong>1</strong>executed real-data benchmark</div>
-          <div class="metric"><strong>1</strong>reference section for API and CLI details</div>
+      </section>
+      <section class="section">
+        <h2>Worked examples</h2>
+        <div class="grid cols-2">
+          <article class="card"><img src="assets/scenario-rare-state.png" alt="Rare-state example"><h3>Rare-State Retrieval</h3><a href="tutorial-rare-state.html">Open article</a></article>
+          <article class="card"><img src="assets/scenario-single-cell.png" alt="Single-cell example"><h3>Single-Cell Query</h3><a href="tutorial-single-cell.html">Open article</a></article>
+          <article class="card"><img src="assets/scenario-cohort-triage.png" alt="Cohort triage example"><h3>Cohort Triage</h3><a href="tutorial-cohort-triage.html">Open article</a></article>
+          <article class="card"><img src="assets/scenario-broad-state.png" alt="Broad-state example"><h3>Broad-State Tuning</h3><a href="tutorial-broad-state.html">Open article</a></article>
         </div>
-      </div>
-    </section>
-
-    <p class="footer">Markdown versions of these tutorials live beside the HTML pages in <code>docs/</code>.</p>
+      </section>
+    </div>
   </main>
 </body>
 </html>
