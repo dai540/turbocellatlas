@@ -3,52 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TurboCell Atlas - Reference</title>
+  <title>TurboCell Atlas reference</title>
   <link rel="icon" type="image/svg+xml" href="assets/tca-icon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <div class="brand">
-        <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
-        <div class="brand-stack">
-          <div class="eyebrow">Reference</div>
-          <div class="brand-title">TurboCell Atlas</div>
-        </div>
-      </div>
-      <h1>Modules, classes, CLI, and file formats.</h1>
-      <p class="lede">A compact reference for the current package surface area.</p>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="get-started.html">Get Started</a>
-        <a href="wet-lab-guide.html">Wet Lab Guide</a>
-        <a href="tutorial.html">Tutorials</a>
-        <a href="theory-and-design.html">Theory and Design</a>
-        <a href="real-data-case-study.html">Real Data Case Study</a>
-        <a href="reference.html">Reference</a>
-      </nav>
-    </section>
-
-    <section class="section">
-      <h2>Main modules</h2>
-      <p><code>tca.config</code> holds <code>TurboQuantConfig</code>.</p>
-      <p><code>tca.quantization</code> holds <code>TurboQuantMSE</code>, <code>TurboQuantProd</code>, and <code>exact_topk</code>.</p>
-      <p><code>tca.pipeline</code> holds <code>SearchIndex</code>.</p>
-      <p><code>tca.io</code> handles local embedding and metadata loading.</p>
-      <p><code>tca.benchmarks</code> provides exact, HNSW, and FAISS-PQ comparison backends.</p>
-    </section>
-
-    <section class="section">
-      <h2>CLI</h2>
-      <pre><code>tca search --embeddings REF.npy --metadata META.jsonl --query QUERY.npy --output results.json</code></pre>
-      <p>Important options: <code>--bit-width</code>, <code>--candidate-k</code>, <code>--rerank-k</code>, <code>--oversample</code>, <code>--quantizer-kind</code>, and repeated <code>--filter key=value</code>.</p>
-    </section>
-
-    <section class="section">
-      <h2>Current limits</h2>
-      <p>The package currently assumes dense in-memory embeddings and exact reranking from the original bank. Direct SCimilarity model execution and Census ingestion are planned next layers rather than finished parts of the current codebase.</p>
-    </section>
+  <header class="topbar"><div class="topbar-inner"><a class="brand-link" href="index.html"><img src="assets/tca-icon.svg" alt="TurboCell Atlas icon"><div class="brand-copy"><strong>TurboCell Atlas</strong><span>atlas-scale retrieval in Python</span></div></a><nav class="topnav"><a href="index.html">Home</a><a href="tutorial.html">Tutorials</a><a href="guides.html">Guides</a><a class="active" href="api.html">API</a><a href="benchmarks.html">Benchmarks</a></nav></div></header>
+  <main class="layout">
+    <aside class="sidebar"><div class="sidebar-group"><h2>API</h2><ul><li><a href="api.html">API overview</a></li><li><a class="active" href="reference.html">Reference</a></li><li><a href="get-started.html">Get Started</a></li></ul></div></aside>
+    <div class="content">
+      <section class="hero"><div class="eyebrow">API</div><h1>Modules, classes, CLI, and file formats.</h1><p class="lede">A compact reference for the current public package surface area.</p></section>
+      <section class="section"><h2>Main modules</h2><ul><li><code>tca.config</code></li><li><code>tca.quantization</code></li><li><code>tca.pipeline</code></li><li><code>tca.io</code></li><li><code>tca.benchmarks</code></li><li><code>tca.cli</code></li></ul></section>
+      <section class="section"><h2>CLI</h2><pre><code>tca search --embeddings REF.npy --metadata META.jsonl --query QUERY.npy --output results.json</code></pre></section>
+    </div>
   </main>
 </body>
 </html>

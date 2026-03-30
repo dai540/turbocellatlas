@@ -3,155 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TurboCell Atlas Real Data Case Study</title>
+  <title>TurboCell Atlas real-data case study</title>
   <link rel="icon" type="image/svg+xml" href="assets/tca-icon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <div class="brand">
-        <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
-        <div class="brand-stack">
-          <div class="eyebrow">Real Data Case Study</div>
-          <div class="brand-title">TurboCell Atlas</div>
-        </div>
-      </div>
-      <h1>Executed SCimilarity-space benchmark with explicit input, process, and output traceability.</h1>
-      <p class="lede">This page shows the full chain for TurboCell Atlas on the public SCimilarity tutorial dataset: what the input dataframe contains, how the data are processed, how queries are built, how candidate generation and exact reranking interact, and what tables and figures are produced.</p>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="get-started.html">Get Started</a>
-        <a href="wet-lab-guide.html">Wet Lab Guide</a>
-        <a href="tutorial.html">Tutorials</a>
-        <a href="theory-and-design.html">Theory and Design</a>
-        <a href="real-data-case-study.html">Real Data Case Study</a>
-        <a href="reference.html">Reference</a>
-      </nav>
-    </section>
-
-    <section class="section">
-      <h2>Background and Objective</h2>
-      <p>TurboCell Atlas separates representation quality from retrieval efficiency. SCimilarity provides the biologically meaningful embedding space. TurboQuant compresses candidate generation. Exact reranking restores the final ranking in the original embedding space.</p>
-      <p>This benchmark evaluates two centroid queries on the public SCimilarity tutorial dataset: a compact <code>IPF myofibroblast</code> query and a broader <code>IPF alveolar macrophage</code> query.</p>
-    </section>
-
-    <section class="section">
-      <h2>Input</h2>
-      <p>The analysis starts from <code>GSE136831_subsample.h5ad</code>, a dataset with <code>50,000</code> cells and <code>44,942</code> genes. The executed field-level dictionary is written to <code>artifacts/real_data_case_study/input_data_dictionary.csv</code>.</p>
-      <table>
-        <thead>
-          <tr><th>Field</th><th>Table</th><th>Role</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>celltype_name</code></td><td><code>obs</code></td><td>query construction and hit interpretation</td></tr>
-          <tr><td><code>Disease</code></td><td><code>obs</code></td><td>query construction and disease enrichment summary</td></tr>
-          <tr><td><code>sample</code></td><td><code>obs</code></td><td>sample-level metadata context</td></tr>
-          <tr><td><code>study</code></td><td><code>obs</code></td><td>study provenance</td></tr>
-          <tr><td><code>cell_id</code></td><td>derived <code>obs</code></td><td>stable output identifier</td></tr>
-          <tr><td><code>query_group</code></td><td>derived <code>obs</code></td><td>group label for query provenance</td></tr>
-          <tr><td><code>X</code></td><td>AnnData matrix</td><td>SCimilarity-preprocessed expression matrix</td></tr>
-          <tr><td><code>embedding</code></td><td>derived matrix</td><td><code>128</code>-dimensional retrieval representation</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="section">
-      <h2>Process</h2>
-      <pre><code>GSE136831_subsample.h5ad
-  -&gt; obs metadata summary + counts-derived matrix
-  -&gt; SCimilarity gene alignment
-  -&gt; per-10k normalization + log1p
-  -&gt; SCimilarity encoder embeddings
-  -&gt; L2 normalization
-  -&gt; centroid query construction
-  -&gt; exact / HNSW / FAISS-PQ / TurboQuant candidate search
-  -&gt; exact reranking for TurboQuant candidates
-  -&gt; benchmark tables, figures, logs, and notebooks</code></pre>
-      <p>The executed stage table is written to <code>artifacts/real_data_case_study/pipeline_stages.csv</code>.</p>
-      <table>
-        <thead>
-          <tr><th>Stage</th><th>Name</th><th>Output</th><th>Display artifact</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td><code>load_input_h5ad</code></td><td>AnnData with counts-derived matrix and <code>obs</code> metadata</td><td>input dataset summary</td></tr>
-          <tr><td>2</td><td><code>align_to_scimilarity_gene_order</code></td><td>gene order aligned to SCimilarity</td><td>pipeline stage table</td></tr>
-          <tr><td>3</td><td><code>scimilarity_preprocess</code></td><td>per-10k <code>log1p</code> matrix</td><td>methods section and notebook</td></tr>
-          <tr><td>4</td><td><code>embed_cells</code></td><td><code>50,000 x 128</code> embedding matrix</td><td>embedding summary table</td></tr>
-          <tr><td>5</td><td><code>construct_queries</code></td><td>centroid query vectors</td><td>query definition table</td></tr>
-          <tr><td>6</td><td><code>candidate_generation</code></td><td>method-specific candidate pool</td><td>candidate vs rerank table</td></tr>
-          <tr><td>7</td><td><code>exact_rerank_or_baseline_return</code></td><td>ranked top hits</td><td>top hits table</td></tr>
-          <tr><td>8</td><td><code>reporting</code></td><td>CSV, JSON, JSONL, PNG, Markdown, notebooks</td><td>artifact index</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="section">
-      <h2>Query provenance</h2>
-      <p>The executed query provenance is written to <code>artifacts/real_data_case_study/query_definitions.csv</code>.</p>
-      <table>
-        <thead>
-          <tr><th>Query</th><th>Disease</th><th>Cell type</th><th>Source cells</th><th>Query mode</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>IPF</code></td><td><code>myofibroblast cell</code></td><td>458</td><td><code>focused</code></td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>IPF</code></td><td><code>alveolar macrophage</code></td><td>4,389</td><td><code>broad</code></td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="section">
-      <h2>Candidate generation and reranking</h2>
-      <p>The executed comparison is written to <code>artifacts/real_data_case_study/candidate_rerank_comparison.csv</code>. This table shows how large the TurboQuant candidate set was and how much exact reranking recovered versus the exact baseline.</p>
-      <table>
-        <thead>
-          <tr><th>Query</th><th>Method</th><th>Query mode</th><th>Candidate count</th><th>Recall@100</th><th>Top-20 overlap</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>turboquant-prod-b2</code></td><td><code>focused</code></td><td>2048</td><td>1.00</td><td>1.00</td></tr>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>turboquant-prod-b3</code></td><td><code>focused</code></td><td>2048</td><td>1.00</td><td>1.00</td></tr>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>turboquant-prod-b4</code></td><td><code>focused</code></td><td>2048</td><td>1.00</td><td>1.00</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>turboquant-prod-b2</code></td><td><code>broad</code></td><td>8192</td><td>0.62</td><td>0.70</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>turboquant-prod-b3</code></td><td><code>broad</code></td><td>8192</td><td>0.63</td><td>0.60</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>turboquant-prod-b4</code></td><td><code>broad</code></td><td>8192</td><td>0.58</td><td>0.65</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="section">
-      <h2>Output</h2>
-      <p>The final benchmark figure is generated as <code>artifacts/real_data_case_study/benchmark_summary.png</code>.</p>
-      <img src="assets/real-data-benchmark-summary.png" alt="Real-data benchmark summary" style="max-width:100%;height:auto;">
-      <p>The final benchmark table is written to <code>artifacts/real_data_case_study/benchmark_summary.csv</code>.</p>
-      <table>
-        <thead>
-          <tr><th>Query</th><th>Method</th><th>Recall@100</th><th>Avg latency (ms)</th><th>Candidate memory (MB)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>exact</code></td><td>1.00</td><td>11.98</td><td>24.41</td></tr>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>turboquant-prod-b2</code></td><td>1.00</td><td>53.71</td><td>1.72</td></tr>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>turboquant-prod-b3</code></td><td>1.00</td><td>47.34</td><td>2.48</td></tr>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>turboquant-prod-b4</code></td><td>1.00</td><td>45.35</td><td>3.24</td></tr>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>faiss-pq-m8-nbits8</code></td><td>0.30</td><td>0.17</td><td>0.51</td></tr>
-          <tr><td><code>IPF myofibroblast centroid</code></td><td><code>hnswlib-cosine</code></td><td>1.00</td><td>0.12</td><td>31.69</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>exact</code></td><td>1.00</td><td>10.46</td><td>24.41</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>turboquant-prod-b2</code></td><td>0.62</td><td>47.51</td><td>1.72</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>turboquant-prod-b3</code></td><td>0.63</td><td>59.07</td><td>2.48</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>turboquant-prod-b4</code></td><td>0.58</td><td>55.03</td><td>3.24</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>faiss-pq-m8-nbits8</code></td><td>0.03</td><td>0.27</td><td>0.51</td></tr>
-          <tr><td><code>IPF alveolar macrophage centroid</code></td><td><code>hnswlib-cosine</code></td><td>1.00</td><td>0.35</td><td>31.69</td></tr>
-        </tbody>
-      </table>
-      <p>The concrete ranked outputs live in <code>artifacts/real_data_case_study/top_hits.csv</code>, and the complete artifact catalog lives in <code>artifacts/real_data_case_study/artifact_index.csv</code>.</p>
-    </section>
-
-    <section class="section">
-      <h2>Interpretation</h2>
-      <p>For the compact <code>IPF myofibroblast</code> query, TurboQuant preserved the exact top-100 neighborhood while shrinking the candidate layer substantially. For the broader <code>IPF alveolar macrophage</code> query, adaptive planning improved quality but did not close the gap to exact or HNSW.</p>
-      <p>This means the project now demonstrates a complete retrieval story: the input dataframe is documented, the processing stages are enumerated, candidate generation and reranking are visible, and the final answer tables and figures are linked directly to the executed run.</p>
-    </section>
-
-    <p class="footer">Executed artifacts are written to <code>artifacts/real_data_case_study/</code>, and notebooks are written to <code>notebooks/</code>.</p>
+  <header class="topbar"><div class="topbar-inner"><a class="brand-link" href="index.html"><img src="assets/tca-icon.svg" alt="TurboCell Atlas icon"><div class="brand-copy"><strong>TurboCell Atlas</strong><span>atlas-scale retrieval in Python</span></div></a><nav class="topnav"><a href="index.html">Home</a><a href="tutorial.html">Tutorials</a><a class="active" href="guides.html">Guides</a><a href="api.html">API</a><a href="benchmarks.html">Benchmarks</a></nav></div></header>
+  <main class="layout">
+    <aside class="sidebar"><div class="sidebar-group"><h2>Guides</h2><ul><li><a href="guides.html">Guides overview</a></li><li><a href="theory-and-design.html">Theory and Design</a></li><li><a class="active" href="real-data-case-study.html">Real Data Case Study</a></li><li><a href="tutorial-benchmark-review.html">Benchmark Review</a></li></ul></div></aside>
+    <div class="content">
+      <section class="hero"><div class="eyebrow">Guides</div><h1>Executed SCimilarity-space benchmark with explicit input, process, and output traceability.</h1><p class="lede">This article reports the full chain for TurboCell Atlas on the public SCimilarity tutorial dataset, from AnnData input through query construction, candidate generation, exact reranking, and final artifacts.</p></section>
+      <section class="section"><img class="figure" src="assets/real-data-benchmark-summary.png" alt="Real-data benchmark summary"></section>
+      <section class="section"><h2>What this article contains</h2><ul><li>input schema and data dictionary</li><li>processing stages and query provenance</li><li>candidate-vs-rerank comparison</li><li>final benchmark table and ranked hits</li></ul><p>Detailed machine-readable outputs live in <code>artifacts/real_data_case_study/</code>.</p></section>
+    </div>
   </main>
 </body>
 </html>
