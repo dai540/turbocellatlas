@@ -1,6 +1,6 @@
 # TurboCell Atlas
 
-![TurboCell Atlas icon](docs/assets/tca-icon.svg)
+<img src="docs/assets/tca-icon.svg" alt="TurboCell Atlas icon" width="104" />
 
 TurboCell Atlas is a retrieval system for atlas-scale single-cell search. It is built around a simple separation of concerns:
 
@@ -41,6 +41,12 @@ python scripts/setup_demo_assets.py
 - `artifacts/real_data_case_study/`
 - `artifacts/scenario_articles/`
 - `https://dai540.github.io/turbocellatlas/`
+
+## GitHub Pages
+
+The static docs site is published at:
+
+- [https://dai540.github.io/turbocellatlas/](https://dai540.github.io/turbocellatlas/)
 
 ## Why this project exists
 

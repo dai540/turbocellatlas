@@ -1,25 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
   <title id="title">TurboCell Atlas icon</title>
-  <desc id="desc">A rounded-square mark with a hexagonal atlas, cell rings, and a search node.</desc>
+  <desc id="desc">A Python-package style rounded-square icon with layered cell rings and an atlas grid.</desc>
   <defs>
-    <linearGradient id="atlas" x1="0%" x2="100%" y1="0%" y2="100%">
+    <linearGradient id="shell" x1="0%" x2="100%" y1="0%" y2="100%">
       <stop offset="0%" stop-color="#0f6c63"/>
       <stop offset="100%" stop-color="#1f8a70"/>
     </linearGradient>
-    <linearGradient id="focus" x1="0%" x2="100%" y1="0%" y2="100%">
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
       <stop offset="0%" stop-color="#f6d6a8"/>
       <stop offset="100%" stop-color="#b65a2a"/>
     </linearGradient>
   </defs>
-  <rect width="256" height="256" rx="56" fill="#f8f4ec"/>
-  <path d="M128 24 203 67v86l-75 43-75-43V67z" fill="url(#atlas)"/>
-  <path d="M128 46 184 78v64l-56 32-56-32V78z" fill="#f3efe6" opacity=".94"/>
-  <circle cx="128" cy="110" r="34" fill="none" stroke="#0f6c63" stroke-width="12"/>
-  <circle cx="128" cy="110" r="14" fill="#0f6c63"/>
-  <path d="M154 136c20 0 36 16 36 36" fill="none" stroke="url(#focus)" stroke-linecap="round" stroke-width="14"/>
-  <circle cx="190" cy="172" r="18" fill="url(#focus)"/>
-  <path d="M66 170h78" stroke="#0f6c63" stroke-linecap="round" stroke-width="12"/>
-  <circle cx="78" cy="170" r="10" fill="#0f6c63"/>
-  <circle cx="110" cy="170" r="10" fill="#0f6c63" opacity=".76"/>
-  <circle cx="142" cy="170" r="10" fill="#0f6c63" opacity=".52"/>
+  <rect width="256" height="256" rx="56" fill="#f7f4ed"/>
+  <rect x="26" y="26" width="204" height="204" rx="44" fill="url(#shell)"/>
+  <rect x="46" y="46" width="164" height="164" rx="34" fill="#f7f4ed" opacity=".95"/>
+  <circle cx="108" cy="108" r="38" fill="none" stroke="#0f6c63" stroke-width="12"/>
+  <circle cx="108" cy="108" r="16" fill="#0f6c63"/>
+  <path d="M150 84h24M150 108h24M150 132h24M150 156h24" stroke="#0f6c63" stroke-linecap="round" stroke-width="10"/>
+  <path d="M148 84c20 0 36 16 36 36" fill="none" stroke="url(#accent)" stroke-linecap="round" stroke-width="14"/>
+  <circle cx="184" cy="120" r="16" fill="url(#accent)"/>
+  <path d="M82 166h88" stroke="#0f6c63" stroke-linecap="round" stroke-width="12"/>
+  <circle cx="96" cy="166" r="9" fill="#0f6c63"/>
+  <circle cx="126" cy="166" r="9" fill="#0f6c63" opacity=".72"/>
+  <circle cx="156" cy="166" r="9" fill="#0f6c63" opacity=".46"/>
 </svg>
