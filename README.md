@@ -1,5 +1,7 @@
 # TurboCell Atlas
 
+![TurboCell Atlas icon](docs/assets/tca-icon.svg)
+
 TurboCell Atlas is a retrieval system for atlas-scale single-cell search. It is built around a simple separation of concerns:
 
 - biological meaning lives in a high-quality embedding space such as SCimilarity
