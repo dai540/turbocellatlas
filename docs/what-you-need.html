@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What you need before using TurboCell Atlas</title>
+  <link rel="icon" type="image/svg+xml" href="assets/tca-icon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-link" href="index.html">
+        <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
+        <div class="brand-copy"><strong>TurboCell Atlas</strong><span>atlas-scale retrieval in Python</span></div>
+      </a>
+      <nav class="topnav">
+        <a href="index.html">Home</a>
+        <a href="tutorial.html">Tutorials</a>
+        <a class="active" href="guides.html">Guides</a>
+        <a href="api.html">API</a>
+        <a href="benchmarks.html">Benchmarks</a>
+      </nav>
+    </div>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-group">
+        <h2>Guides</h2>
+        <ul>
+          <li><a href="guides.html">Guides overview</a></li>
+          <li><a href="what-turbocellatlas-can-do.html">What TurboCell Atlas Can Do</a></li>
+          <li><a class="active" href="what-you-need.html">What You Need</a></li>
+          <li><a href="wet-lab-guide.html">Wet Lab Guide</a></li>
+          <li><a href="theory-and-design.html">Theory and Design</a></li>
+          <li><a href="real-data-case-study.html">Real Data Case Study</a></li>
+        </ul>
+      </div>
+    </aside>
+    <div class="content">
+      <section class="hero">
+        <div class="eyebrow">Guides</div>
+        <h1>What you need before you can use TurboCell Atlas well.</h1>
+        <p class="lede">This page explains the minimum ingredients for a successful first run: a reference atlas, a biologically meaningful query, and enough metadata to interpret the answer.</p>
+      </section>
+      <section class="section prose">
+        <h2>Minimum technical ingredients</h2>
+        <p>You need three things: a reference atlas, a query, and a way to interpret the returned cells.</p>
+        <h3>A reference atlas</h3>
+        <p>This is the collection of cells you want to search against. In practice, TurboCell Atlas expects atlas embeddings plus metadata. At minimum, the metadata should contain <code>cell_id</code> and whatever fields you may want to filter on, such as <code>Disease</code>, <code>tissue</code>, <code>study</code>, <code>sample</code>, or <code>celltype_name</code>.</p>
+        <h3>A query</h3>
+        <p>The query is the cell state you want to search with. It can be one single cell, a centroid of several labeled cells, or a query vector saved in <code>.npy</code>. The most important practical question is not only how to compute a vector, but also what biological state that vector actually represents.</p>
+        <h3>A way to interpret the results</h3>
+        <p>TurboCell Atlas returns ranked cells, but ranks need biological context. You therefore need metadata fields that mean something biologically, a plan for checking whether the returned cells match expectation, and a way to compare filtered and unfiltered retrieval when cohort effects matter.</p>
+        <h2>Minimum files for the easiest start</h2>
+        <ul>
+          <li><code>configs/wetlab_metadata_template.csv</code></li>
+          <li><code>notebooks/wet_lab_walkthrough.ipynb</code></li>
+          <li><code>artifacts/wetlab_examples/</code></li>
+        </ul>
+        <h2>Optional but strongly recommended</h2>
+        <p>Meaningful metadata makes the package far more useful. Disease, tissue, study, sample, and cell type annotations are usually the most interpretable fields. It also helps to keep a benchmark mindset by comparing exact search, compressed search, and cohort-filtered search so you can tell whether the answer is stable.</p>
+        <h2>Common misunderstandings</h2>
+        <h3>"I only have raw counts, not embeddings"</h3>
+        <p>That is still workable, but TurboCell Atlas mainly expects embeddings at retrieval time. In the current examples, SCimilarity is used as the embedding layer.</p>
+        <h3>"I only have one interesting cell"</h3>
+        <p>That is fine. The single-cell tutorial shows that one cell can still be a valid starting point.</p>
+        <h3>"I do not know which metadata fields matter"</h3>
+        <p>Start with disease, tissue, study, sample, and cell type if you have them. Those are usually the most interpretable fields.</p>
+        <p><a href="get-started.html">Continue to Get Started</a></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

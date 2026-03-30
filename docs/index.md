@@ -14,6 +14,8 @@ TurboCell Atlas is a Python package for atlas-scale single-cell retrieval. It co
 
 ## Quick links
 
+- [What TurboCell Atlas Can Do](what-turbocellatlas-can-do.md)
+- [What You Need](what-you-need.md)
 - [Get Started](get-started.md)
 - [Wet Lab Guide](wet-lab-guide.md)
 - [Rare-State Retrieval](tutorial-rare-state.md)
@@ -27,6 +29,15 @@ TurboCell Atlas is designed for questions like these:
 - given one cell state, what similar cells exist in a large atlas
 - how much memory can be saved in candidate search without losing the final biological ranking
 - when should retrieval be restricted by disease, tissue, study, or sample
+
+## If you are new here
+
+The best reading order is:
+
+1. [What TurboCell Atlas Can Do](what-turbocellatlas-can-do.md)
+2. [What You Need Before Using It](what-you-need.md)
+3. [Wet Lab Guide](wet-lab-guide.md) or [Get Started](get-started.md)
+4. one scenario article from [Tutorials](tutorial.md)
 
 ## Current status
 

@@ -11,6 +11,8 @@ TurboCell Atlas is a Python package for atlas-scale single-cell retrieval. It co
 
 - Read the docs: [https://dai540.github.io/turbocellatlas/](https://dai540.github.io/turbocellatlas/)
 - Browse tutorials: [Tutorials](docs/tutorial.md)
+- Start with the simplest questions: [What TurboCell Atlas Can Do](docs/what-turbocellatlas-can-do.md)
+- Check your prerequisites: [What You Need](docs/what-you-need.md)
 - Start from the easiest path: [Wet Lab Guide](docs/wet-lab-guide.md)
 - Inspect executed benchmarks: [Benchmarks](docs/benchmarks.md)
 
@@ -50,6 +52,11 @@ TurboCell Atlas is designed for questions like these:
 - how much memory can be saved in candidate search without changing the final biological ranking too much
 - when should retrieval be restricted by disease, tissue, study, or sample
 
+If you want the plain-language explanation first, read:
+
+- [What TurboCell Atlas Can Do](docs/what-turbocellatlas-can-do.md)
+- [What You Need Before Using TurboCell Atlas](docs/what-you-need.md)
+
 ## Public API
 
 The intended public package surface is small:
@@ -77,6 +84,8 @@ TurboQuant remains slower than exact search in this Python prototype. The packag
 - [Home](docs/index.md)
 - [Tutorials](docs/tutorial.md)
 - [Guides](docs/guides.md)
+- [What TurboCell Atlas Can Do](docs/what-turbocellatlas-can-do.md)
+- [What You Need](docs/what-you-need.md)
 - [API](docs/api.md)
 - [Benchmarks](docs/benchmarks.md)
 - [Contributing](docs/contributing.md)

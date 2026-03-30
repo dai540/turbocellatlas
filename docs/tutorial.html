@@ -10,7 +10,10 @@
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand-link" href="index.html"><img src="assets/tca-icon.svg" alt="TurboCell Atlas icon"><div class="brand-copy"><strong>TurboCell Atlas</strong><span>atlas-scale retrieval in Python</span></div></a>
+      <a class="brand-link" href="index.html">
+        <img src="assets/tca-icon.svg" alt="TurboCell Atlas icon">
+        <div class="brand-copy"><strong>TurboCell Atlas</strong><span>atlas-scale retrieval in Python</span></div>
+      </a>
       <nav class="topnav">
         <a href="index.html">Home</a>
         <a class="active" href="tutorial.html">Tutorials</a>
@@ -26,6 +29,8 @@
         <h2>Tutorials</h2>
         <ul>
           <li><a class="active" href="tutorial.html">Tutorials overview</a></li>
+          <li><a href="what-turbocellatlas-can-do.html">What TurboCell Atlas Can Do</a></li>
+          <li><a href="what-you-need.html">What You Need</a></li>
           <li><a href="get-started.html">Get Started</a></li>
           <li><a href="wet-lab-guide.html">Wet Lab Guide</a></li>
           <li><a href="tutorial-rare-state.html">Rare-State Retrieval</a></li>
@@ -39,24 +44,75 @@
     <div class="content">
       <section class="hero">
         <div class="eyebrow">Tutorials</div>
-        <h1>Tutorials are the fastest way to see TurboCell Atlas in action.</h1>
-        <p class="lede">Use this section for first runs, wet-lab-friendly walkthroughs, and scenario-specific executed examples.</p>
+        <h1>Tutorials should explain not only what to run, but also what the result means.</h1>
+        <p class="lede">Use this section for first runs, wet-lab-friendly walkthroughs, and scenario-specific executed examples. Each page is meant to connect a biological question, a query definition, and a concrete output table or figure.</p>
+      </section>
+      <section class="section prose">
+        <h2>How to use this section</h2>
+        <p>A good TurboCell Atlas tutorial is more than a command log. It should help you understand why a query was chosen, what data are being searched, what tables and figures were generated, and how to interpret the result without over-claiming. If you are new to the package, read the two simple articles below before choosing a scenario tutorial.</p>
+      </section>
+      <section class="section">
+        <h2>Before you choose a workflow</h2>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>What TurboCell Atlas Can Do</h3>
+            <p>The plain-language summary of where the package is already useful.</p>
+            <a href="what-turbocellatlas-can-do.html">Read article</a>
+          </article>
+          <article class="card">
+            <h3>What You Need</h3>
+            <p>The minimum data, metadata, and expectations you should prepare before using it.</p>
+            <a href="what-you-need.html">Read article</a>
+          </article>
+        </div>
       </section>
       <section class="section">
         <h2>Entry points</h2>
         <div class="grid cols-2">
-          <article class="card"><h3>Get Started</h3><p>Install the package, prepare inputs, and run the first search.</p><a href="get-started.html">Open tutorial</a></article>
-          <article class="card"><h3>Wet Lab Guide</h3><p>The easiest path for non-computational users.</p><a href="wet-lab-guide.html">Open tutorial</a></article>
+          <article class="card">
+            <h3>Get Started</h3>
+            <p>Install the package, inspect the first files, and run the first search command.</p>
+            <a href="get-started.html">Open tutorial</a>
+          </article>
+          <article class="card">
+            <h3>Wet Lab Guide</h3>
+            <p>The easiest path for non-computational users who want help understanding inputs, outputs, and interpretation.</p>
+            <a href="wet-lab-guide.html">Open tutorial</a>
+          </article>
         </div>
       </section>
       <section class="section">
         <h2>Worked examples</h2>
         <div class="grid cols-2">
-          <article class="card"><img src="assets/scenario-rare-state.png" alt="Rare-state example"><h3>Rare-State Retrieval</h3><a href="tutorial-rare-state.html">Open article</a></article>
-          <article class="card"><img src="assets/scenario-single-cell.png" alt="Single-cell example"><h3>Single-Cell Query</h3><a href="tutorial-single-cell.html">Open article</a></article>
-          <article class="card"><img src="assets/scenario-cohort-triage.png" alt="Cohort triage example"><h3>Cohort Triage</h3><a href="tutorial-cohort-triage.html">Open article</a></article>
-          <article class="card"><img src="assets/scenario-broad-state.png" alt="Broad-state example"><h3>Broad-State Tuning</h3><a href="tutorial-broad-state.html">Open article</a></article>
+          <article class="card">
+            <img src="assets/scenario-rare-state.png" alt="Rare-state example">
+            <h3>Rare-State Retrieval</h3>
+            <p>The clearest current success case for compressed candidate generation with exact reranking.</p>
+            <a href="tutorial-rare-state.html">Open article</a>
+          </article>
+          <article class="card">
+            <img src="assets/scenario-single-cell.png" alt="Single-cell example">
+            <h3>Single-Cell Query</h3>
+            <p>How to start from one interesting cell when you do not yet have a curated centroid.</p>
+            <a href="tutorial-single-cell.html">Open article</a>
+          </article>
+          <article class="card">
+            <img src="assets/scenario-cohort-triage.png" alt="Cohort triage example">
+            <h3>Cohort Triage</h3>
+            <p>How disease or tissue filters change the returned neighborhood and the biological story you tell.</p>
+            <a href="tutorial-cohort-triage.html">Open article</a>
+          </article>
+          <article class="card">
+            <img src="assets/scenario-broad-state.png" alt="Broad-state example">
+            <h3>Broad-State Tuning</h3>
+            <p>Why broad states are harder and how planning changes recall.</p>
+            <a href="tutorial-broad-state.html">Open article</a>
+          </article>
         </div>
+      </section>
+      <section class="section prose">
+        <h2>How to read a TurboCell Atlas tutorial</h2>
+        <p>Start from the background and objective, then inspect the input description, then look at the output tables and figures, and only after that read the interpretation. The package is most useful when the retrieval result can be traced back to a clear biological question and a clearly described input dataset.</p>
       </section>
     </div>
   </main>

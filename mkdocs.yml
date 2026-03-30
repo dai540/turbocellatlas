@@ -16,6 +16,8 @@ nav:
       - Benchmark Review: tutorial-benchmark-review.md
   - Guides:
       - Guides overview: guides.md
+      - What TurboCell Atlas Can Do: what-turbocellatlas-can-do.md
+      - What You Need: what-you-need.md
       - Theory and Design: theory-and-design.md
       - Real Data Case Study: real-data-case-study.md
   - API:
