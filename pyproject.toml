@@ -26,9 +26,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/daiki/turbocellatlas"
-Documentation = "https://github.com/daiki/turbocellatlas/tree/main/docs"
-Repository = "https://github.com/daiki/turbocellatlas"
+Homepage = "https://github.com/dai540/turbocellatlas"
+Documentation = "https://dai540.github.io/turbocellatlas/"
+Repository = "https://github.com/dai540/turbocellatlas"
 
 [project.optional-dependencies]
 io = [
@@ -45,6 +45,12 @@ scimilarity = [
 dev = [
   "pytest>=8.3",
   "build>=1.2",
+]
+docs = [
+  "Sphinx>=8.2",
+  "pydata-sphinx-theme>=0.16",
+  "sphinx-copybutton>=0.5",
+  "sphinx-design>=0.6",
 ]
 
 [project.scripts]

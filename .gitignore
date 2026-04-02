@@ -18,6 +18,7 @@ env/
 build/
 dist/
 *.egg-info/
+docs/_build/
 
 # Jupyter
 .ipynb_checkpoints/

@@ -1,3 +1,3 @@
--e .[io,bench,dev]
+-e .[io,bench,dev,docs]
 matplotlib>=3.8
 pandas>=2.2
