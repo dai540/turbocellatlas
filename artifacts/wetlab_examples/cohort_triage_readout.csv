@@ -1,5 +1,0 @@
-scope,method,active_cells,avg_latency_ms,target_celltype_fraction_top20,target_disease_fraction_top20,top20_overlap_vs_exact_in_scope
-all_cells,exact,50000,11.39036000240594,0.95,0.65,1.0
-all_cells,turboquant-prod-b3,50000,57.614740007556975,0.95,0.55,0.1
-ipf_only,exact,23803,16.24296000227332,1.0,1.0,1.0
-ipf_only,turboquant-prod-b3,23803,40.398659999482334,0.9,1.0,0.3

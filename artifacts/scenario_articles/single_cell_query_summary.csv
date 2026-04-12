@@ -1,4 +1,0 @@
-method,query,query_sample,target_celltype_fraction_top20,target_disease_fraction_top20,top20_overlap_vs_exact,recall_at_100_vs_exact,avg_latency_ms
-exact,single IPF myofibroblast cell,DS000011735-GSM4058962,0.95,0.95,1.0,1.0,10.398939996957779
-turboquant-prod-b3,single IPF myofibroblast cell,DS000011735-GSM4058962,0.95,0.95,1.0,1.0,45.391880022361875
-hnswlib-cosine,single IPF myofibroblast cell,DS000011735-GSM4058962,0.95,0.95,1.0,1.0,0.11488001327961683

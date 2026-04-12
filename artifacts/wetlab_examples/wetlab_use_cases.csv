@@ -1,4 +1,0 @@
-use_case,plain_question,main_takeaway,where_to_look
-rare_state_lookup,"If I search with a disease-like fibroblast state, do I get back the same kind of cells?",Yes. TurboQuant and exact returned the same top-100 neighborhood for the myofibroblast centroid.,rare_state_summary.csv and tutorial-rare-state.*
-cohort_triage,"If I only care about IPF, should I search inside the whole atlas or only inside IPF cells?",The story changes. IPF-only filtering turns the top-20 from mixed disease to all-IPF.,cohort_triage_summary.csv and tutorial-cohort-triage.*
-broad_state_search,What if my query is broad and the first result looks weak?,Use broad planning. It raised recall from about 0.15 to about 0.63 for the alveolar macrophage query.,broad_state_tuning_summary.csv and tutorial-broad-state.*

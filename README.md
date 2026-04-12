@@ -1,121 +1,164 @@
 # TurboCell Atlas
 
-<img src="docs/assets/tca-icon.svg" alt="TurboCell Atlas icon" width="92" />
+<img src="docs/assets/tca-icon.svg" alt="TurboCell Atlas icon" width="80" />
 
 [![Docs](https://img.shields.io/badge/docs-github.io-0f6c63)](https://dai540.github.io/turbocellatlas/)
 ![Python](https://img.shields.io/badge/python-3.10%2B-3776ab)
 ![License](https://img.shields.io/badge/license-MIT-0f172a)
-![Status](https://img.shields.io/badge/status-alpha-b65a2a)
 
-TurboCell Atlas is a Python package for atlas-scale single-cell retrieval. It combines compressed candidate generation with exact reranking in the original embedding space, with an emphasis on reproducible benchmark artifacts and Sphinx documentation that can be read by both computational and wet-lab collaborators.
+TurboCell Atlas is a minimal Python package for atlas-scale cell-state retrieval. This repository has been reduced to the smallest defensible form: a compact package, a small test suite, and a Sphinx site. Heavy benchmark artifacts, downloaded datasets, notebooks, and generated caches are intentionally excluded.
 
-- Read the docs: [https://dai540.github.io/turbocellatlas/](https://dai540.github.io/turbocellatlas/)
-- Browse tutorials: [Tutorials](https://dai540.github.io/turbocellatlas/tutorials/index.html)
-- Start with the simplest questions: [What TurboCell Atlas Can Do](https://dai540.github.io/turbocellatlas/guides/what-can-do.html)
-- Check your prerequisites: [What You Need](https://dai540.github.io/turbocellatlas/guides/what-you-need.html)
-- Start from the easiest path: [Wet-lab Guide](https://dai540.github.io/turbocellatlas/tutorials/wet-lab-guide.html)
-- Inspect executed benchmarks: [Benchmarks](https://dai540.github.io/turbocellatlas/benchmarks.html)
+## Design goals
 
-## Install
+The repository is built around four constraints.
 
-Install from a local clone:
+1. Keep the package small.
+2. Keep the dependency set small.
+3. Keep the documentation explicit and structured.
+4. Avoid shipping large bundled data or generated outputs.
+
+The current implementation therefore focuses on one core capability: exact cosine search over a dense embedding matrix with optional exact-match metadata filters.
+
+## What is included
+
+- a minimal installable package under `src/turbocellatlas`
+- a small CLI for running exact search on `.npy` embeddings
+- a compact test suite under `tests`
+- a Sphinx site under `docs`
+- GitHub Actions for tests and documentation deployment
+
+## What is intentionally excluded
+
+- large benchmark artifacts
+- downloaded demo datasets
+- notebooks
+- one-off scripts used only during development
+- approximate-search backends with heavy compiled dependencies
+- temporary files, `.tar.gz` outputs, and generated caches
+
+This is deliberate. The repository is meant to remain small enough to inspect and install quickly.
+
+## Installation
+
+Install the package:
 
 ```bash
-pip install -e .[io,bench,dev,docs]
+pip install -e .
 ```
 
-Or create a local environment:
+Install development and documentation dependencies:
 
 ```bash
-conda env create -f environment.yml
+pip install -r requirements-dev.txt
 ```
 
-## Documentation structure
+## Core usage
 
-The Sphinx site is organized like a package documentation site:
+The package exposes one primary object: `SearchIndex`.
 
-- `Home`
-- `Tutorials`
-- `Guides`
-- `API reference`
-- `Benchmarks`
-- `Contributing`
-- `Release notes`
-- `References`
+```python
+import numpy as np
 
-If you want the plain-language explanation first, read:
+from turbocellatlas import SearchConfig, SearchIndex
 
-- [What TurboCell Atlas Can Do](https://dai540.github.io/turbocellatlas/guides/what-can-do.html)
-- [What You Need Before Using TurboCell Atlas](https://dai540.github.io/turbocellatlas/guides/what-you-need.html)
+embeddings = np.array(
+    [
+        [1.0, 0.0],
+        [0.9, 0.1],
+        [0.0, 1.0],
+    ],
+    dtype=np.float32,
+)
 
-## Build the docs
+metadata = [
+    {"cell_id": "cell-a", "disease": "IPF"},
+    {"cell_id": "cell-b", "disease": "IPF"},
+    {"cell_id": "cell-c", "disease": "Control"},
+]
 
-Build the Sphinx site locally:
+index = SearchIndex(embeddings, metadata, SearchConfig(top_k=2))
+results = index.search(np.array([1.0, 0.0], dtype=np.float32), filters={"disease": "IPF"})
+```
+
+Each result contains:
+
+- `rank`
+- `item_id`
+- `score`
+- `metadata`
+
+## Command-line usage
+
+The CLI accepts `.npy` embeddings and query vectors. Metadata is optional and can be supplied as JSONL.
+
+```bash
+tca search \
+  --embeddings embeddings.npy \
+  --query query.npy \
+  --metadata metadata.jsonl \
+  --top-k 5 \
+  --output results.json
+```
+
+## Repository layout
+
+```text
+turbocellatlas/
+├── .github/workflows/
+├── docs/
+├── src/turbocellatlas/
+├── tests/
+├── LICENSE
+├── pyproject.toml
+├── README.md
+└── requirements-dev.txt
+```
+
+## Documentation
+
+The documentation is built with Sphinx and organized into four top-level sections.
+
+- Getting Started
+- Guides
+- Tutorials
+- Reference
+
+The published site is available at [https://dai540.github.io/turbocellatlas/](https://dai540.github.io/turbocellatlas/).
+
+Build the docs locally:
 
 ```bash
 sphinx-build -b html docs docs/_build/html
 ```
 
-## Get started with data
+## Scope and limitations
 
-Download the public demo assets used by the tutorials:
+This package is now intentionally narrow.
+
+- It performs exact search only.
+- It does not bundle or download heavy datasets.
+- It does not include benchmark pipelines or tutorial notebooks.
+- It expects dense embedding matrices that already exist.
+
+That tradeoff is intentional. The repository now prioritizes a small footprint, clarity, and maintainability over breadth.
+
+## Development checks
+
+Run tests:
 
 ```bash
-python scripts/setup_demo_assets.py
+pytest
 ```
 
-Then inspect:
+Build docs:
 
-- `configs/wetlab_metadata_template.csv`
-- `notebooks/wet_lab_walkthrough.ipynb`
-- `artifacts/wetlab_examples/`
+```bash
+sphinx-build -W -b html docs docs/_build/html
+```
 
-## What this package is for
+## Metadata
 
-TurboCell Atlas is designed for questions like these:
-
-- given one cell state, what similar cells exist in a large atlas
-- how much memory can be saved in candidate search without changing the final biological ranking too much
-- when should retrieval be restricted by disease, tissue, study, or sample
-
-## Public API
-
-The intended public package surface is small:
-
-- `tca.pipeline.SearchIndex`
-- `tca.config.TurboQuantConfig`
-- `tca.quantization.TurboQuantMSE`
-- `tca.quantization.TurboQuantProd`
-- `tca.cli`
-
-The project does not promise stability for undocumented internal details.
-
-## Current highlights
-
-- `IPF myofibroblast centroid`: TurboQuant matched exact at `recall@100 = 1.00`
-- `single IPF myofibroblast cell`: TurboQuant matched exact in the executed example
-- `IPF alveolar macrophage centroid`: broader planning substantially improved recall, but did not reach exact
-
-## Current limitation
-
-TurboQuant remains slower than exact search in this Python prototype. The package is therefore best understood as a strong research and benchmarking prototype rather than a fully optimized production retrieval engine.
-
-## Documentation map
-
-- [Home](https://dai540.github.io/turbocellatlas/)
-- [Tutorials](https://dai540.github.io/turbocellatlas/tutorials/index.html)
-- [Guides](https://dai540.github.io/turbocellatlas/guides/index.html)
-- [API](https://dai540.github.io/turbocellatlas/api/index.html)
-- [Benchmarks](https://dai540.github.io/turbocellatlas/benchmarks.html)
-- [Contributing](https://dai540.github.io/turbocellatlas/contributing.html)
-- [Release notes](https://dai540.github.io/turbocellatlas/release-notes.html)
-- [References](https://dai540.github.io/turbocellatlas/references.html)
-
-## Project metadata
-
-- `LICENSE`
-- `CITATION.cff`
-- `CONTRIBUTING.md`
-- `CHANGELOG.md`
-- `.github/workflows/ci.yml`
-- `.github/workflows/pages.yml`
+- Author: Dai
+- License: MIT
+- Repository: [https://github.com/dai540/turbocellatlas](https://github.com/dai540/turbocellatlas)
+- Documentation: [https://dai540.github.io/turbocellatlas/](https://dai540.github.io/turbocellatlas/)

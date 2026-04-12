@@ -1,3 +1,0 @@
-query,query_mode,disease,celltype,n_source_cells,embedding_dim,query_norm
-IPF myofibroblast centroid,focused,IPF,myofibroblast cell,458,128,0.9999999403953552
-IPF alveolar macrophage centroid,broad,IPF,alveolar macrophage,4389,128,1.0

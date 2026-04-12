@@ -1,7 +1,0 @@
-query,method,query_mode,candidate_count,filtered_count,top20_overlap_vs_exact,recall_at_100_vs_exact,planned_candidate_k,planned_oversample,score_gap,score_spread
-IPF myofibroblast centroid,turboquant-prod-b2,focused,2048,50000,1.0,1.0,512,4,0.0,0.0
-IPF myofibroblast centroid,turboquant-prod-b3,focused,2048,50000,1.0,1.0,512,4,0.0,0.0
-IPF myofibroblast centroid,turboquant-prod-b4,focused,2048,50000,1.0,1.0,512,4,0.0,0.0
-IPF alveolar macrophage centroid,turboquant-prod-b2,broad,8192,50000,0.7,0.62,1024,8,0.12373220920562744,0.012870530597865582
-IPF alveolar macrophage centroid,turboquant-prod-b3,broad,8192,50000,0.6,0.63,1024,8,0.08642542362213135,0.006538111716508865
-IPF alveolar macrophage centroid,turboquant-prod-b4,broad,8192,50000,0.65,0.58,1024,8,0.061553120613098145,0.004580720327794552

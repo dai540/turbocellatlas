@@ -1,9 +1,0 @@
-stage,name,input_object,output_object,shape_or_count,display
-1,load_input_h5ad,GSE136831_subsample.h5ad,AnnData with counts layer and obs metadata,50000 cells x 44942 genes,input dataset summary table
-2,align_to_scimilarity_gene_order,raw AnnData,aligned AnnData,gene order matched to SCimilarity model,pipeline stage table
-3,scimilarity_preprocess,aligned counts,per-10k log1p expression matrix,50000 cells,methods section + notebook cell
-4,embed_cells,preprocessed expression matrix,SCimilarity embedding matrix,50000 x 128,embedding summary table
-5,construct_queries,embedding matrix + obs labels,centroid queries,2 query vectors,query definition table
-6,candidate_generation,query vector + index,candidate set,method-specific candidate pool,candidate vs rerank comparison table
-7,exact_rerank_or_baseline_return,candidate set or baseline index,ranked top hits,top 100 per query and method,top hits table
-8,reporting,ranked outputs and metrics,csv/json/jsonl/png/md/ipynb artifacts,artifact bundle,artifact index

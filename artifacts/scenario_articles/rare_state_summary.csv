@@ -1,7 +1,0 @@
-method,query,recall_at_100_vs_exact,top20_overlap_vs_exact,avg_latency_ms,candidate_memory_mb,target_celltype_fraction_top20,target_disease_fraction_top20
-exact,IPF myofibroblast centroid,1.0,1.0,10.294759995304048,24.4140625,1.0,1.0
-turboquant-prod-b2,IPF myofibroblast centroid,1.0,1.0,44.112719991244376,1.71661376953125,1.0,1.0
-turboquant-prod-b3,IPF myofibroblast centroid,1.0,1.0,44.756580027751625,2.47955322265625,1.0,1.0
-turboquant-prod-b4,IPF myofibroblast centroid,1.0,1.0,45.04436000715941,3.24249267578125,1.0,1.0
-faiss-pq-m8-nbits8,IPF myofibroblast centroid,0.3,0.05,2.0842399913817644,0.5065517425537109,1.0,0.9
-hnswlib-cosine,IPF myofibroblast centroid,1.0,1.0,0.16852000262588263,31.68560791015625,1.0,1.0
